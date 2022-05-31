@@ -41,8 +41,24 @@ const validatePassword = async (request, response) =>{
     }
 
 }
+
+
+const savePassword = async (request, response)=>{
+    const clearTestPassword = request.body.password;
+    const hashedTestPassword = md5(clearTestPassword);
+    await redisClient.hSet('passwords',request.body.userName, request.body.password);//This is wrong
+    response.status(200); //status 200 means ok
+    response.send({result:"Saved"});
+}
+
+/*async function savePassword(request,response){
+
+
+}*/
+
 app.get('/',(request,response)=>{//every time something calls your API that is a request
     response.send("Hello");//a response is when the API gives the information requested
 })
 
+app.post('/signup', savePassword)
 app.post('/login', validatePassword);

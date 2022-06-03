@@ -6,13 +6,13 @@ const md5 = require('md5');
 const bodyParser = require('body-parser'); //body parser is called middleware
 const {createClient} = require('redis');
 const { response } = require('express');
-const { fs } = require('fs');
+const fs = require('fs');
 const redisClient = createClient(
-    {
-        socket:{
-            port:6379,
-            host:"127.0.0.1",
-    },
+{
+    socket:{
+        port:6379,
+        host:"127.0.0.1",
+},
 }
 ); // This creates a connection to the redis database
 

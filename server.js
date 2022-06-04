@@ -1,6 +1,6 @@
 const express = require('express'); // need to download express
 const https = require('https');
-const port = 3000;
+const port = 443;
 const app = express();
 const md5 = require('md5');
 const bodyParser = require('body-parser'); //body parser is called middleware
@@ -22,6 +22,7 @@ app.use(bodyParser.json()); //Use the middleware (call it before anything else h
 https.createServer({
     key: fs.readFileSync('server.key'),
     cert: fs.readFileSync('server.cert'),
+    // passphrase: 'P@ssw0rd'
 }, app).listen(port, async()=>{
     await redisClient.connect();//creating a TCP socket with Redis
     console.log("Listening on port: "+port);

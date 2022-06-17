@@ -1,0 +1,2 @@
+scp /Users/dexterdavenport/Desktop/Spring_2022/Security/github/server.cert dexterdavenport@34.122.228.225:/home/dexterdavenport/
+scp /Users/dexterdavenport/Desktop/Spring_2022/Security/github/server.key dexterdavenport@34.122.228.225:/home/dexterdavenport/

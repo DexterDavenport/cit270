@@ -63,7 +63,7 @@ const savePassword = async (request, response)=>{
 }*/
 
 app.get('/',(request,response)=>{//every time something calls your API that is a request
-    response.send("Hello");//a response is when the API gives the information requested
+    response.send("This is working");//a response is when the API gives the information requested
 })
 
 app.post('/signup', savePassword)

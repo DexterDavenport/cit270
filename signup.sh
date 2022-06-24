@@ -1,1 +1,1 @@
-curl -d "@signup.json" -X POST -H "content-type:application/json" https://dexter-nodejs.cit270.com:443/signup
+curl --insecure -d "@signup.json" -H "content-type:application/json" -X POST https://dexter-nodejs.cit270.com:443/signup

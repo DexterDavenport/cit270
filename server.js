@@ -39,7 +39,7 @@ const validatePassword = async (request, response) =>{
     //search database for username, and retrieve current password
 
     //compare the hashed version of the password that was sent with the hashed version from the database
-    if (requestHashedPassword==redisHashedPassword){        //add this before requestHashedPassword to hardcode the user (loginRequest.userName=="derick.whitmer@gmail.com" &&) 
+    if (loginRequest.userName==request.body.userName && requestHashedPassword===redisHashedPassword){        //add this before requestHashedPassword to hardcode the user (loginRequest.userName=="derick.whitmer@gmail.com" &&) 
         response.status(200); //200 means okay
         response.send("Welcome");
     } else{

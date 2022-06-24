@@ -32,7 +32,7 @@ https.createServer({
 const validatePassword = async (request, response) =>{
     // await redisClient.connect();//creating a TCP socket with Redis
     const requestHashedPassword = md5(request.body.password);//get the password form the body and hash it
-    const redisHashedPassword = await redisClient.hmGet('password', request.body.userName); // read password from redis
+    const redisHashedPassword = await redisClient.hmGet('passwords', request.body.userName); // read password from redis
     console.log('Redis hashed password: '+redisHashedPassword);
     const loginRequest = request.body;
     console.log("Request Body", JSON.stringify(request.body));

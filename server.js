@@ -52,7 +52,7 @@ const validatePassword = async (request, response) =>{
 const savePassword = async (request, response)=>{
     const clearTestPassword = request.body.password;
     const hashedTestPassword = md5(clearTestPassword);
-    await redisClient.hSet('passwords',request.body.userName, request.body.password);//This is wrong
+    await redisClient.hSet('passwords',request.body.userName, hashedTestPassword);//This is wrong
     response.status(200); //status 200 means ok
     response.send({result:"Saved"});
 }

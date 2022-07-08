@@ -44,6 +44,8 @@ spec:
             path: /
           # This is the port to use to see if my API is running
             port: 443
+          # This is the protocol to use to check if my APU is running
+            scheme: HTTPS
           initialDelaySeconds: 3
           periodSeconds: 3
         readinessProbe:

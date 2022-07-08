@@ -5,19 +5,19 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
 # This is the name of my deploymeny
-  name: dex-cit270
+  name: dex-cit270-project
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dex-cit270
+      app: dex-cit270-project
   template:
     metadata:
       labels:
-        app: dex-cit270
+        app: dex-cit270-project
     spec:
       containers:
-      - name: dex-cit270
+      - name: dex-cit270-project
       # This is hte Dockerhub url to my image
         image: dexterdavenport/cit270-project
         # This is the command to run oncew the container starts
@@ -33,7 +33,7 @@ spec:
             cpu: ".125"
           # This is the mac memory (in Millabytes)
             memory: "500Mi"
-          request:
+          requests:
           # This is the minimum CPU (in cores) my container can use
             cpu: ".1"
           # This is the minimum memory (in Millabytes)

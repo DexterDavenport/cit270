@@ -55,5 +55,16 @@ spec:
           initialDelaySeconds: 3
           periodSeconds: 3
 
-
-
+# This is the tart of a new document for the Load Balancer
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: dex-cet270-loadbalancer
+spec:
+  selector: 
+    app: dex-cit270-project
+  type: LoadBalancer 
+  ports: 
+  - port: 80
+    targetPort: 3000

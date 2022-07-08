@@ -19,15 +19,15 @@ spec:
       containers:
       - name: dex-cit270
       # This is hte Dockerhub url to my image
-        image: dexterdavenport/cit270
+        image: dexterdavenport/cit270-project
         # This is the command to run oncew the container starts
         command: ["pm"]
         # These are the argumentst to pass to the command when the 
         args: ["run","start"]
         # This is the port my containter is listening on, ex 443 or
         ports:
-         - containerPort: 443
-         resources:
+          - containerPort: 443
+        resources:
           limits:
           # This is the max CPU (in cores) my container can use
             cpu: ".125"
@@ -55,5 +55,5 @@ spec:
           initialDelaySeconds: 3
           periodSeconds: 3
 
-          
+
 

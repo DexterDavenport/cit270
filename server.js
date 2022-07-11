@@ -10,10 +10,10 @@ const fs = require('fs');
 const redisClient = createClient(
 {
     url: 'redis://default@35.202.166.25:6379',
-    socket:{
-        port:6379,
-        host:"127.0.0.1",
-},
+//     socket:{
+//         port:6379,
+//         host:"127.0.0.1",
+// },
 }
 ); // This creates a connection to the redis database
 

@@ -58,6 +58,7 @@ spec:
               scheme: HTTPS
             initialDelaySeconds: 3
             periodSeconds: 3
+
 # This is the start of a new document for the Load Balancer
 ---
 apiVersion: v1
@@ -69,5 +70,5 @@ spec:
     app: dexter-cit270
   type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 3000
+  - port: 443
+    targetPort: 443

@@ -21,7 +21,7 @@ spec:
       # This is hte Dockerhub url to my image
         image: dexterdavenport/cit270-project
         # This is the command to run oncew the container starts
-        command: ["pm"]
+        command: ["npm"]
         # These are the argumentst to pass to the command when the 
         args: ["run","start"]
         # This is the port my containter is listening on, ex 443 or

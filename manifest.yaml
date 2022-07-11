@@ -1,74 +1,73 @@
-#0 2022 Dex Davenport
+#0 2022 Dexter Davenport
 # Version of Kubernetes API we are using
 apiVersion: apps/v1
 # This can be a statefulset, or a deploument, a deploument doesnt need a hard drive that sticks around
 kind: Deployment
 metadata:
 # This is the name of my deploymeny
-  name: dex-cit270-project
+  name: dexter-cit270
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: dex-cit270-project
+      app: dexter-cit270
   template:
     metadata:
       labels:
-        app: dex-cit270-project
+        app: dexter-cit270
     spec:
       containers:
-      - name: dex-cit270-project
-      # This is hte Dockerhub url to my image
-        image: dexterdavenport/cit270-project
-        # This is the command to run oncew the container starts
-        command: ["npm"]
-        # These are the argumentst to pass to the command when the 
-        args: ["run","start"]
-        # This is the port my containter is listening on, ex 443 or
-        ports:
-          - containerPort: 443
-        resources:
-          limits:
-          # This is the max CPU (in cores) my container can use
-            cpu: ".125"
-          # This is the mac memory (in Millabytes)
-            memory: "500Mi"
-          requests:
-          # This is the minimum CPU (in cores) my container can use
-            cpu: ".1"
-          # This is the minimum memory (in Millabytes)
-            memory: "250Mi"
-        livenessProbe:
-          httpGet:
-          # This is the url to call to see if my API  is running
-            path: /
-          # This is the port to use to see if my API is running
-            port: 443
-          # This is the protocol to use to check if my APU is running
-            scheme: HTTPS
-          initialDelaySeconds: 3
-          periodSeconds: 3
-        readinessProbe:
-          httpGet:
-          # This is the url to call to see fi my API has started
-            path: /
-          # This is the port to use to see if my API has started
-            port: 443
-            # This is the protocol to use to check if my API has started
-            scheme: HTTPS
-          initialDelaySeconds: 3
-          periodSeconds: 3
-
-# This is the tart of a new document for the Load Balancer
+        - name: dexter-cit270
+        # This is the Dockerhub url to my image
+          image: dexterdavenport/cit270-project
+          # This is the command to run oncew the container starts
+          command: ["npm"]
+          # These are the argumentst to pass to the command when the 
+          args: ["run","start"]
+          # This is the port my containter is listening on, ex 443 or
+          ports:
+            - containerPort: 443
+          resources:
+            limits:
+            # This is the max CPU (in cores) my container can use
+              cpu: ".125"
+            # This is the mac memory (in Millabytes)
+              memory: "500Mi"
+            requests:
+            # This is the minimum CPU (in cores) my container can use
+              cpu: ".1"
+            # This is the minimum memory (in Millabytes)
+              memory: "250Mi"
+          livenessProbe:
+            httpGet:
+            # This is the url to call to see if my API  is running
+              path: /
+            # This is the port to use to see if my API is running
+              port: 443
+            # This is the protocol to use to check if my API is running
+              scheme: HTTPS
+            initialDelaySeconds: 3
+            periodSeconds: 3
+          readinessProbe:
+            httpGet:
+            # This is the url to call to see fi my API has started
+              path: /
+            # This is the port to use to see if my API has started
+              port: 443
+              # This is the protocol to use to check if my API has started
+              scheme: HTTPS
+            initialDelaySeconds: 3
+            periodSeconds: 3
+# This is the start of a new document for the Load Balancer
 ---
 apiVersion: v1
 kind: Service
-metadata: 
-  name: dex-cet270-loadbalancer
+metadata:
+  name: dexter-cit270-loadbalancer
 spec:
-  selector: 
-    app: dex-cit270-project
-  type: LoadBalancer 
-  ports: 
+  selector:
+    app: dexter-cit270
+  type: LoadBalancer
+  ports:
   - port: 80
     targetPort: 3000

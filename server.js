@@ -1,6 +1,6 @@
 const express = require('express'); // need to download express
 const https = require('https');
-const port = 443;
+const port = 3000;
 const app = express();
 const md5 = require('md5');
 const bodyParser = require('body-parser'); //body parser is called middleware

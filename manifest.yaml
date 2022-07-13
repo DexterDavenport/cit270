@@ -45,7 +45,7 @@ spec:
             # This is the port to use to see if my API is running
               port: 443
             # This is the protocol to use to check if my API is running
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 3
           readinessProbe:
@@ -55,7 +55,7 @@ spec:
             # This is the port to use to see if my API has started
               port: 443
               # This is the protocol to use to check if my API has started
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 3
 

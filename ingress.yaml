@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: dex-cit270-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    Kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+spec: 
+  tls:
+  - hosts: 
+    - dexter-nodejs.cit270.com.
+    secretName: dex-cit270-tls
+  rules:
+  - host: dexter-nodejs.cit270.com.
+    http: 
+      paths:
+      - backend:
+          serviceName: dexter-cit270-loadbalancer
+          servicePort: 80

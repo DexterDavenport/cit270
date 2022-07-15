@@ -10,10 +10,10 @@ metadata:
 spec: 
   tls:
   - hosts: 
-    - dexter-nodejs.cit270.com.
+    - dexter-nodejs.cit270.com
     secretName: dex-cit270-tls
   rules:
-  - host: dexter-nodejs.cit270.com.
+  - host: dexter-nodejs.cit270.com
     http: 
       paths:
       - backend:
